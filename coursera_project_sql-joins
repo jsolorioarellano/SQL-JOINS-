@@ -1,0 +1,74 @@
+USE bookstore;
+
+SELECT o.itemid, c.customername
+FROM orderinfo AS o
+INNER JOIN customer AS c ON o.customerid=c.customerid;
+
+
+
+
+SELECT i.booktitle, a.authorname
+FROM item AS i
+INNER JOIN author AS a ON i.authorid=a.authorid;
+
+
+
+
+SELECT i.booktitle, a.authorname
+FROM item AS i
+LEFT JOIN author AS a ON i.authorid=a.authorid
+ORDER BY i.booktitle;
+
+
+
+
+SELECT c.customername, o.itemid
+FROM customer AS c
+LEFT JOIN orderinfo AS o ON c.customerid=o.customerid
+ORDER BY c.customername;
+
+
+
+
+SELECT o.itemid, c.customername
+FROM orderinfo AS o
+RIGHT JOIN customer AS c ON o.customerid=c.customerid
+ORDER BY c.customername;
+
+
+
+
+SELECT a.authorname, i.booktitle
+FROM author AS a
+RIGHT JOIN item AS i ON a.authorid=i.authorid
+ORDER BY a.authorname;
+
+
+
+
+SELECT *
+FROM item
+CROSS JOIN author;
+
+
+
+
+SELECT a.authorname, i.booktitle
+FROM author AS a
+INNER JOIN item AS i ON a.authorid=i.authorid;
+
+
+
+
+SELECT city FROM customer
+UNION All
+SELECT city FROM supplier
+ORDER BY city;
+
+
+
+
+SELECT customername FROM customer
+UNION
+SELECT firstname FROM employees
+ORDER BY customername;
